@@ -1,0 +1,24 @@
+@startuml
+start
+
+:Admin login ke sistem;
+if (Apakah login berhasil?) then (Ya)
+    :Akses dashboard admin;
+    :Pilih aksi (Tambah/Melihat data);
+    if (Tambah data?) then (Ya)
+        :Input data (Nama, NIM, Nominal);
+        :Validasi data input;
+        if (Data valid?) then (Ya)
+            :Simpan ke database;
+        else (Tidak)
+            :Tampilkan pesan error;
+        endif
+    else (Tidak)
+        :Melihat data penerima beasiswa;
+    endif
+else (Tidak)
+    :Tampilkan pesan error login;
+endif
+
+stop
+@enduml

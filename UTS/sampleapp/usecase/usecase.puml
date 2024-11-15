@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Admin as admin
+actor "Pengguna Umum" as user
+
+package "Sistem Beasiswa" {
+    usecase "Login" as UC_Login
+    usecase "Tambah Data Penerima" as UC_Tambah
+    usecase "Lihat Data Penerima" as UC_Lihat
+    usecase "Generate Laporan" as UC_Laporan
+}
+
+admin --> UC_Login
+admin --> UC_Tambah
+admin --> UC_Lihat
+admin --> UC_Laporan
+
+user --> UC_Lihat : <<Optional>>
+@enduml
