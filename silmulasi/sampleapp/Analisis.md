@@ -152,6 +152,8 @@ php artisan make:migration create_products_table
 ```
 Lalu, modifikasi file migration seperti ini:
 ```php
+<?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -176,7 +178,6 @@ class CreateProductsTable extends Migration
 }
 ```
 ---
-
 #### 4. Membuat Seeder
 Gunakan perintah berikut untuk membuat file seeder:
 ```bash
@@ -184,6 +185,10 @@ php artisan make:seeder ProductSeeder
 ```
 Lalu, modifikasi file seeder seperti ini:
 ```php
+<?php
+
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -199,10 +204,7 @@ class ProductSeeder extends Seeder
     }
 }
 ```
-
-
 ---
-
 #### 5. Membuat Model
 Gunakan perintah berikut untuk membuat model:
 ```bash
@@ -210,6 +212,8 @@ php artisan make:model Product
 ```
 Lalu, modifikasi file model seperti ini:
 ```php
+<?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -226,7 +230,16 @@ class Product extends Model
     ];
 }
 ```
-### 6. Jalankan seeder:
+#### 6. Generate Filament Resource
+```bash
+php artisan make:filament-resource Product --generate
+```
+
+#### 7. Langkah Penyelesaian:
+```bash
+php artisan project:init
+```
+#### 8. Generate seeder
 ```bash
 php artisan db:seed --class=ProductSeeder
 ```

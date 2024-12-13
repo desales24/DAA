@@ -30,9 +30,8 @@ class ProductResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('$'),
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\TextInput::make('category')
+                    ->required(),
             ]);
     }
 
@@ -45,9 +44,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->money()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('category'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -3,26 +3,16 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Product;
-use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        $products = [
-            ['name' => 'Nike Air Max', 'price' => 1200000, 'category' => 'Sepatu'],
-            ['name' => 'Levi’s Jeans', 'price' => 800000, 'category' => 'Celana'],
-            ['name' => 'Polo Shirt', 'price' => 450000, 'category' => 'Baju'],
-        ];
-
-        foreach ($products as $product) {
-            $category = Category::where('name', $product['category'])->first();
-            Product::create([
-                'name' => $product['name'],
-                'price' => $product['price'],
-                'category_id' => $category->id,
-            ]);
-        }
+        DB::table('products')->insert([
+            ['name' => 'Nike Air Max', 'price' => 1200000, 'category' => 'Sepatu', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Levi’s Jeans', 'price' => 800000, 'category' => 'Celana', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Polo Shirt', 'price' => 450000, 'category' => 'Baju', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 }
