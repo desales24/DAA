@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+
+actor Konsumen
+actor Penjual
+actor Admin
+
+rectangle EcoMarket {
+  Konsumen -- (Registrasi/Login)
+  Konsumen -- (Jelajahi Produk)
+  Konsumen -- (Tambah ke Keranjang)
+  Konsumen -- (Checkout dan Pembayaran)
+  Konsumen -- (Menerima Pesanan)
+
+  Penjual -- (Registrasi/Login)
+  Penjual -- (Kelola Produk)
+  Penjual -- (Menerima Pesanan)
+  Penjual -- (Mengatur Pengiriman)
+  Penjual -- (Menangani Komplain)
+
+  Admin -- (Kelola Pengguna)
+  Admin -- (Kelola Produk)
+  Admin -- (Kelola Transaksi)
+  Admin -- (Menangani Keluhan)
+  Admin -- (Melihat Laporan & Analisis)
+}
+
+(Registrasi/Login) --> (Jelajahi Produk) : <<include>>
+(Jelajahi Produk) --> (Tambah ke Keranjang) : <<include>>
+(Tambah ke Keranjang) --> (Checkout dan Pembayaran) : <<include>>
+(Checkout dan Pembayaran) --> (Menerima Pesanan) : <<include>>
+
+(Registrasi/Login) --> (Kelola Produk) : <<include>>
+(Kelola Produk) --> (Menerima Pesanan) : <<include>>
+(Menerima Pesanan) --> (Mengatur Pengiriman) : <<include>>
+(Mengatur Pengiriman) --> (Menangani Komplain) : <<include>>
+
+(Kelola Pengguna) --> (Kelola Produk) : <<extend>>
+(Kelola Produk) --> (Kelola Transaksi) : <<extend>>
+(Kelola Transaksi) --> (Menangani Keluhan) : <<extend>>
+(Menangani Keluhan) --> (Melihat Laporan & Analisis) : <<extend>>
+@enduml
