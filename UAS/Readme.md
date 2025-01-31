@@ -4,13 +4,13 @@
 
 ### 1. Latar Belakang
 
-> EcoMarket adalah sebuah platform berbasis web yang dirancang untuk memfasilitasi jual beli produk ramah lingkungan, seperti barang daur ulang, produk organik, dan energi terbarukan. Dengan meningkatnya kesadaran masyarakat akan pentingnya menjaga lingkungan, permintaan terhadap produk-produk ramah lingkungan semakin tinggi. Namun, banyak konsumen yang masih kesulitan menemukan produk-produk tersebut karena kurangnya akses ke pasar yang terorganisir. Di sisi lain, produsen produk ramah lingkungan juga seringkali kesulitan menjangkau pasar yang lebih luas karena keterbatasan promosi dan distribusi.
->
-> Di era digital ini, teknologi memiliki peran penting dalam menghubungkan produsen dan konsumen. Namun, hingga saat ini, belum banyak platform yang secara khusus fokus pada produk-produk ramah lingkungan. Kebanyakan marketplace umum masih didominasi oleh produk-produk konvensional yang belum tentu ramah lingkungan. Hal ini menciptakan kesenjangan antara permintaan dan penawaran produk ramah lingkungan. EcoMarket hadir sebagai solusi untuk mengatasi masalah ini dengan menyediakan platform yang khusus ditujukan untuk produk-produk ramah lingkungan.
->
-> Selain itu, pemerintah Indonesia telah mengeluarkan berbagai kebijakan untuk mendorong pertumbuhan ekonomi hijau dan penggunaan produk ramah lingkungan. Namun, implementasi kebijakan ini seringkali terkendala oleh kurangnya sarana yang memadai untuk menghubungkan produsen dan konsumen. EcoMarket diharapkan dapat menjadi jembatan yang menghubungkan kedua pihak tersebut, sekaligus mendukung kebijakan pemerintah dalam mempromosikan produk ramah lingkungan.
->
-> Dengan adanya EcoMarket, diharapkan dapat meningkatkan kesadaran masyarakat tentang pentingnya penggunaan produk ramah lingkungan serta mendorong pertumbuhan ekonomi hijau di Indonesia. Platform ini tidak hanya memudahkan konsumen dalam menemukan produk ramah lingkungan, tetapi juga membantu produsen dalam memasarkan produk mereka secara lebih efektif. Dengan demikian, EcoMarket diharapkan dapat menjadi salah satu pendorong utama dalam transisi menuju ekonomi yang lebih berkelanjutan dan ramah lingkungan.
+EcoMarket adalah sebuah platform berbasis web yang dirancang untuk memfasilitasi jual beli produk ramah lingkungan, seperti barang daur ulang, produk organik, dan energi terbarukan. Dengan meningkatnya kesadaran masyarakat akan pentingnya menjaga lingkungan, permintaan terhadap produk-produk ramah lingkungan semakin tinggi. Namun, banyak konsumen yang masih kesulitan menemukan produk-produk tersebut karena kurangnya akses ke pasar yang terorganisir. Di sisi lain, produsen produk ramah lingkungan juga seringkali kesulitan menjangkau pasar yang lebih luas karena keterbatasan promosi dan distribusi.
+
+Di era digital ini, teknologi memiliki peran penting dalam menghubungkan produsen dan konsumen. Namun, hingga saat ini, belum banyak platform yang secara khusus fokus pada produk-produk ramah lingkungan. Kebanyakan marketplace umum masih didominasi oleh produk-produk konvensional yang belum tentu ramah lingkungan. Hal ini menciptakan kesenjangan antara permintaan dan penawaran produk ramah lingkungan. EcoMarket hadir sebagai solusi untuk mengatasi masalah ini dengan menyediakan platform yang khusus ditujukan untuk produk-produk ramah lingkungan.
+
+Selain itu, pemerintah Indonesia telah mengeluarkan berbagai kebijakan untuk mendorong pertumbuhan ekonomi hijau dan penggunaan produk ramah lingkungan. Namun, implementasi kebijakan ini seringkali terkendala oleh kurangnya sarana yang memadai untuk menghubungkan produsen dan konsumen. EcoMarket diharapkan dapat menjadi jembatan yang menghubungkan kedua pihak tersebut, sekaligus mendukung kebijakan pemerintah dalam mempromosikan produk ramah lingkungan.
+
+Dengan adanya EcoMarket, diharapkan dapat meningkatkan kesadaran masyarakat tentang pentingnya penggunaan produk ramah lingkungan serta mendorong pertumbuhan ekonomi hijau di Indonesia. Platform ini tidak hanya memudahkan konsumen dalam menemukan produk ramah lingkungan, tetapi juga membantu produsen dalam memasarkan produk mereka secara lebih efektif. Dengan demikian, EcoMarket diharapkan dapat menjadi salah satu pendorong utama dalam transisi menuju ekonomi yang lebih berkelanjutan dan ramah lingkungan.
 
 ### 2. Rumusan Masalah
 
@@ -160,7 +160,23 @@
 
 > Pengembang dan tim teknis yang bertanggung jawab atas desain, implementasi, dan pemeliharaan platform berbasis web ini.
 
-## K. Asumsi dan Kendala
+## **K. Business Requirements**
+
+Aplikasi EcoMarket dirancang sebagai marketplace berbasis Laravel yang mendukung transaksi jual beli produk ramah lingkungan, seperti barang daur ulang, produk organik, dan energi terbarukan. Aplikasi ini bertujuan untuk mendukung gaya hidup berkelanjutan dengan menyediakan platform bagi penjual dan pembeli yang peduli terhadap lingkungan. Untuk memastikan fungsionalitas aplikasi berjalan optimal, terdapat beberapa kebutuhan bisnis utama yang harus dipenuhi.
+
+Pertama, sistem harus menyediakan fitur registrasi dan login yang memungkinkan pengguna untuk membuat akun menggunakan email atau media sosial. Selain itu, sistem harus menerapkan Role-Based Access Control (RBAC) yang membedakan hak akses antara admin, penjual, dan pembeli, sehingga setiap peran memiliki fungsi yang sesuai.
+
+Fitur utama dari aplikasi ini adalah manajemen produk, di mana penjual dapat mengunggah, mengedit, dan menghapus produk yang mereka jual. Produk harus dikategorikan dengan jelas ke dalam beberapa kelompok, seperti barang daur ulang, produk organik, dan energi terbarukan, agar memudahkan pembeli dalam mencari produk yang sesuai. Selain itu, aplikasi harus mendukung label atau sertifikasi ramah lingkungan untuk memberikan jaminan kualitas kepada pembeli.
+
+Sistem juga harus memiliki fitur keranjang belanja dan checkout, sehingga pembeli dapat memilih produk yang diinginkan dan melanjutkan pembayaran dengan metode yang tersedia. Aplikasi ini harus mendukung berbagai metode pembayaran, seperti transfer bank, e-wallet, dan pembayaran di tempat (COD), agar lebih fleksibel bagi pengguna. Setelah pembayaran berhasil, sistem harus dapat menghasilkan invoice dan mencatat riwayat transaksi sebagai bukti pembelian.
+
+Untuk proses pengiriman, aplikasi harus terintegrasi dengan layanan ekspedisi guna memberikan estimasi biaya dan waktu pengiriman. Selain itu, pembeli harus dapat melacak status pesanan mereka melalui aplikasi, mulai dari pemrosesan, pengiriman, hingga barang diterima. Setelah barang diterima, pembeli dapat memberikan ulasan dan rating terhadap produk dan penjual untuk meningkatkan transparansi dan kepercayaan dalam ekosistem marketplace.
+
+Terakhir, sistem harus menyediakan dashboard admin yang memungkinkan admin untuk mengelola pengguna, produk, transaksi, serta melihat statistik penjualan. Admin juga harus dapat menangani laporan atau keluhan pengguna untuk memastikan aplikasi berjalan dengan baik dan sesuai dengan visi keberlanjutan yang diusung oleh EcoMarket.
+
+Dengan memenuhi kebutuhan bisnis ini, EcoMarket dapat menjadi marketplace yang efektif dan inovatif dalam mendukung gaya hidup berkelanjutan serta menghubungkan produsen dan konsumen dalam ekosistem ekonomi hijau.
+
+## **L. Asumsi dan Kendala**
 
 ### 1. Asumsi
 
@@ -173,7 +189,7 @@
 - Keterbatasan anggaran dapat mempengaruhi pengembangan dan pemeliharaan platform.
 - Keterbatasan akses internet di daerah terpencil dapat menghambat penggunaan platform.
 
-## L. Risiko dan Mitigasi
+## M. Risiko dan Mitigasi
 
 | **Risiko**                              | **Mitigasi**                                                  |
 | --------------------------------------------- | ------------------------------------------------------------------- |
@@ -181,7 +197,7 @@
 | Data pengguna dapat bocor                     | Mengimplementasikan enkripsi dan sistem keamanan ketat              |
 | Kurangnya minat sponsor                       | Meningkatkan nilai jual platform dengan data penjualan yang lengkap |
 
-## M. Daftar Pustaka
+## N. Daftar Pustaka
 
 - Kementerian Lingkungan Hidup dan Kehutanan Republik Indonesia. (2022). Pengembangan Ekonomi Hijau di Indonesia.
 - World Economic Forum. (2021). Global Trends in Sustainable Consumption.
