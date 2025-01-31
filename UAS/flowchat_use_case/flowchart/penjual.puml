@@ -1,26 +1,28 @@
 @startuml
 start
-:Registrasi/Login;
+
+:Buka Aplikasi EcoMarket;
+
 if (Sudah punya akun?) then (Ya)
-    :Login ke sistem;
+  :Login;
 else (Tidak)
-    :Registrasi & Verifikasi Email;
+  :Registrasi;
+  :Verifikasi Akun;
 endif
-:Kelola Produk;
-:Tambahkan/Edit Produk;
-if (Pesanan Masuk?) then (Ya)
-    :Proses Pesanan;
-    :Atur Pengiriman;
-    :Menunggu Konfirmasi Konsumen;
-    if (Pesanan Diterima?) then (Ya)
-        :Pesanan Selesai;
-    else (Tidak)
-        :Tangani Komplain;
-    endif
-    :Lihat Analisis Penjualan;
+
+:Kelola Produk (Tambah/Edit/Hapus Produk);
+
+if (Ada Pesanan Baru?) then (Ya)
+  :Terima Notifikasi Pesanan;
+  :Proses Pesanan dan Atur Pengiriman;
+  :Konfirmasi Pengiriman;
+  :Terima Ulasan/Rating dari Konsumen;
 else (Tidak)
-    :Menunggu Pesanan;
+  :Tidak Ada Pesanan;
 endif
-:Kelola Produk Lagi;
+
+:Analisis Penjualan (Lihat Laporan Performa Produk);
+:Selesai;
+
 stop
 @enduml

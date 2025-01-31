@@ -1,0 +1,42 @@
+@startuml
+start
+
+:Buka Aplikasi EcoMarket;
+
+if (Role?) then (Konsumen)
+  :Login/Registrasi;
+  :Jelajahi Produk (Cari berdasarkan kategori/filter);
+  :Tambahkan Produk ke Keranjang;
+  :Checkout dan Pilih Metode Pembayaran;
+  if (Pembayaran Berhasil?) then (Ya)
+    :Terima Pesanan;
+    :Beri Ulasan/Rating;
+  else (Tidak)
+    :Coba Lagi atau Batalkan Pesanan;
+  endif
+  :Selesai;
+elseif (Produsen)
+  :Login/Registrasi;
+  :Kelola Produk (Tambah/Edit/Hapus Produk);
+  if (Ada Pesanan Baru?) then (Ya)
+    :Terima Notifikasi Pesanan;
+    :Proses Pesanan dan Atur Pengiriman;
+    :Konfirmasi Pengiriman;
+    :Terima Ulasan/Rating dari Konsumen;
+  else (Tidak)
+    :Tidak Ada Pesanan;
+  endif
+  :Analisis Penjualan (Lihat Laporan Performa Produk);
+  :Selesai;
+elseif (Admin)
+  :Login sebagai Admin;
+  :Kelola Pengguna (Verifikasi, Blokir, Hapus Akun);
+  :Kelola Produk (Tinjau, Hapus, Edit Produk);
+  :Kelola Transaksi (Pantau Status Pembayaran dan Pengiriman);
+  :Tangani Keluhan (Selesaikan Masalah antara Konsumen dan Produsen);
+  :Lihat Laporan & Analisis (Statistik Penjualan, Pengguna Aktif, dll.);
+  :Selesai;
+endif
+
+stop
+@enduml

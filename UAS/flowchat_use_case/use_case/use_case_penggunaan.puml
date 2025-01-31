@@ -2,41 +2,47 @@
 left to right direction
 
 actor Konsumen
-actor Penjual
+actor Produsen
 actor Admin
 
-rectangle EcoMarket {
-  Konsumen -- (Registrasi/Login)
+rectangle "EcoMarket" {
+  Konsumen -- (Login/Registrasi)
   Konsumen -- (Jelajahi Produk)
-  Konsumen -- (Tambah ke Keranjang)
+  Konsumen -- (Tambahkan Produk ke Keranjang)
   Konsumen -- (Checkout dan Pembayaran)
-  Konsumen -- (Menerima Pesanan)
+  Konsumen -- (Beri Ulasan/Rating)
+  Konsumen -- (Lacak Pesanan)
 
-  Penjual -- (Registrasi/Login)
-  Penjual -- (Kelola Produk)
-  Penjual -- (Menerima Pesanan)
-  Penjual -- (Mengatur Pengiriman)
-  Penjual -- (Menangani Komplain)
+  Produsen -- (Login/Registrasi)
+  Produsen -- (Kelola Produk)
+  Produsen -- (Terima Notifikasi Pesanan)
+  Produsen -- (Proses Pesanan dan Pengiriman)
+  Produsen -- (Terima Ulasan/Rating)
+  Produsen -- (Analisis Penjualan)
 
   Admin -- (Kelola Pengguna)
   Admin -- (Kelola Produk)
   Admin -- (Kelola Transaksi)
-  Admin -- (Menangani Keluhan)
-  Admin -- (Melihat Laporan & Analisis)
+  Admin -- (Tangani Keluhan)
+  Admin -- (Lihat Laporan & Analisis)
+
+  (Jelajahi Produk) .> (Login/Registrasi) : includes
+  (Tambahkan Produk ke Keranjang) .> (Jelajahi Produk) : includes
+  (Checkout dan Pembayaran) .> (Tambahkan Produk ke Keranjang) : includes
+  (Beri Ulasan/Rating) .> (Checkout dan Pembayaran) : includes
+  (Lacak Pesanan) .> (Checkout dan Pembayaran) : includes
+
+  (Kelola Produk) .> (Login/Registrasi) : includes
+  (Terima Notifikasi Pesanan) .> (Kelola Produk) : includes
+  (Proses Pesanan dan Pengiriman) .> (Terima Notifikasi Pesanan) : includes
+  (Terima Ulasan/Rating) .> (Proses Pesanan dan Pengiriman) : includes
+  (Analisis Penjualan) .> (Terima Ulasan/Rating) : includes
+
+  (Kelola Pengguna) .> (Login sebagai Admin) : includes
+  (Kelola Produk) .> (Login sebagai Admin) : includes
+  (Kelola Transaksi) .> (Login sebagai Admin) : includes
+  (Tangani Keluhan) .> (Login sebagai Admin) : includes
+  (Lihat Laporan & Analisis) .> (Login sebagai Admin) : includes
 }
 
-(Registrasi/Login) --> (Jelajahi Produk) : <<include>>
-(Jelajahi Produk) --> (Tambah ke Keranjang) : <<include>>
-(Tambah ke Keranjang) --> (Checkout dan Pembayaran) : <<include>>
-(Checkout dan Pembayaran) --> (Menerima Pesanan) : <<include>>
-
-(Registrasi/Login) --> (Kelola Produk) : <<include>>
-(Kelola Produk) --> (Menerima Pesanan) : <<include>>
-(Menerima Pesanan) --> (Mengatur Pengiriman) : <<include>>
-(Mengatur Pengiriman) --> (Menangani Komplain) : <<include>>
-
-(Kelola Pengguna) --> (Kelola Produk) : <<extend>>
-(Kelola Produk) --> (Kelola Transaksi) : <<extend>>
-(Kelola Transaksi) --> (Menangani Keluhan) : <<extend>>
-(Menangani Keluhan) --> (Melihat Laporan & Analisis) : <<extend>>
 @enduml
