@@ -1,0 +1,26 @@
+@startuml
+start
+:Registrasi/Login;
+if (Sudah punya akun?) then (Ya)
+    :Login ke sistem;
+else (Tidak)
+    :Registrasi & Verifikasi Email;
+endif
+:Kelola Produk;
+:Tambahkan/Edit Produk;
+if (Pesanan Masuk?) then (Ya)
+    :Proses Pesanan;
+    :Atur Pengiriman;
+    :Menunggu Konfirmasi Konsumen;
+    if (Pesanan Diterima?) then (Ya)
+        :Pesanan Selesai;
+    else (Tidak)
+        :Tangani Komplain;
+    endif
+    :Lihat Analisis Penjualan;
+else (Tidak)
+    :Menunggu Pesanan;
+endif
+:Kelola Produk Lagi;
+stop
+@enduml
