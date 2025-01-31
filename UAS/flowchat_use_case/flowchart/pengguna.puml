@@ -1,0 +1,25 @@
+@startuml
+start
+:Registrasi/Login;
+if (Sudah punya akun?) then (Ya)
+    :Login ke sistem;
+else (Tidak)
+    :Registrasi & Verifikasi Email;
+endif
+:Jelajahi Produk;
+:Tambah ke Keranjang;
+:Checkout & Pilih Metode Pembayaran;
+if (Pembayaran Berhasil?) then (Ya)
+    :Pesanan Diproses;
+    :Menunggu Pengiriman;
+    if (Pesanan Diterima?) then (Ya)
+        :Beri Rating & Ulasan;
+    else (Tidak)
+        :Ajukan Komplain;
+    endif
+    :Selesai;
+else (Tidak)
+    :Ulangi Proses Pembayaran;
+endif
+stop
+@enduml
